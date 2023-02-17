@@ -1,0 +1,25 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","aliases":["c#","C#"],"languageName":"C#"},{"name":"vscode","languageName":null,"aliases":["frontend"]}]}}
+
+#!csharp
+
+var i = 1;
+i+1
+
+#!markdown
+
+blabla
+
+#!csharp
+
+var j = 3;
+j*4
+
+#!markdown
+
+urpo
+
+#!csharp
+
+i+j

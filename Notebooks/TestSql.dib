@@ -1,0 +1,34 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"name":"csharp","aliases":["c#","C#"],"languageName":"C#"},{"name":"vscode","aliases":["frontend"]},{"name":"sql-adventuroworksdb","languageName":"T-SQL","aliases":[]},{"name":".NET","aliases":[]},{"name":"fsharp","aliases":["f#","F#"],"languageName":"F#"},{"name":"html","aliases":[],"languageName":"HTML"},{"name":"kql","aliases":[],"languageName":"KQL"},{"name":"mermaid","aliases":[],"languageName":"Mermaid"},{"name":"pwsh","aliases":["powershell"],"languageName":"PowerShell"},{"name":"sql","aliases":[],"languageName":"SQL"},{"name":"value","aliases":[]}]}}
+
+#!csharp
+
+#r "nuget:Microsoft.DotNet.Interactive.SqlServer,*-*"
+
+#!markdown
+
+Now connect to SQL (please complete the code below with the connection string to your SQL Database)
+
+#!csharp
+
+#!connect mssql --kernel-name adventuroworksdb "<your connection string>" --create-dbcontext
+
+#!sql-adventuroworksdb
+
+SELECT *
+FROM SalesLT.Customer
+
+#!csharp
+
+using Microsoft.DotNet.Interactive.Formatting;
+using static Microsoft.DotNet.Interactive.Formatting.PocketViewTags;
+
+Formatter.Register<Customer>((c,w)=>{
+    w.WriteLine("PIPPO");
+    w.WriteLine(c.FirstName);
+}, mimeType: "text/html");
+
+var c = adventuroworksdb.Customers.First();
+
+c
